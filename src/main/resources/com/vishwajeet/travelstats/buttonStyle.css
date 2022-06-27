@@ -1,0 +1,86 @@
+.button {
+    -fx-background-color: #6F5CC2;
+    -fx-background-radius: Oem;
+}
+
+. button:hover {
+    -fx-background-color: #A89DDA;.
+
+}
+
+.button:pressed {
+    -fx-background-color:#715dhb ;
+}
+
+.button:focused {
+    -fx-background-color: #7D6CC8;
+    -fx-border-color: #CDD1116;
+    -fx-border-width: Opx Opx Opx 3px;
+}
+
+.table-vew .column-header,
+.table-vew .column-header-background.filler {
+    -fx-cell-size: 20;
+    -fx-background-color: #7156DD;
+}
+
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -ft-alignment: CENTER_LEFT;
+}
+
+.table-view .cell {
+    -fx-cell-size: 30;
+    -fx-alignment: center-left;
+    -fX-text-fill: #000000;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: rgb(127, 172, 2471);
+}
+
+.table-row.cell:selected .text{
+-fx-fill : white ;
+}
+
+
+
+
+
+.table-view .increment-button ,.table-view .decrement-button {
+    -fx-beckground-0010: treneparent;
+    -fx-beckground-redius: 2em;
+}
+
+
+.table-view .scroll-bar:horizontal .track,
+table-view .scroll-ber:vertical .track {
+    -ft-background-color: transparent;
+    -fx-border-color: derive(#7156DD, 80%);
+    -ft-background-radius: 2em;
+    -fx-border-radius: 2em;
+}
+
+/* The main scrollnam **thumb** CSS class which we drag every time (movable) */
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: derive(#7156DD, 90%);
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radios: 2em;
+}
+/*
+!* chart properties *!
+hchert
+-fx-padding: lOpx;
+`x-background-.°r: ,~,rent;
+-fx-legend-viSible: false;
+.chart-plot-baCkgraUnd
+- f - background - color : transparent;
+
+.chart-pie'
+-fx-border-color: .^~° ,"col~ pie color, 1.);
+-fx-border-width: Opx;
+*/
