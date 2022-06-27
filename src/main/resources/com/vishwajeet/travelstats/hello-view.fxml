@@ -13,13 +13,20 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vishwajeet.travelstats.HelloController">
    <children>
       <BorderPane prefHeight="502.0" prefWidth="852.0">
          <left>
             <VBox prefHeight="425.0" prefWidth="161.0" style="-fx-background-color: #6f5cc3;" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="165.0" stylesheets="@buttonStyle.css" text="Button" />
+                  <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="165.0" stylesheets="@buttonStyle.css" text="Flight" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/flightl.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                </children>
             </VBox>
          </left>
@@ -36,23 +43,23 @@
                               <Insets left="20.0" top="20.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField>
+                        <TextField fx:id="flightNumberInput">
                            <HBox.margin>
                               <Insets left="10.0" top="20.0" />
                            </HBox.margin>
                         </TextField>
-                        <Button mnemonicParsing="false" stylesheets="@buttonStyle.css" text="Check Status" textFill="WHITE">
+                        <Button fx:id="checkBtn" mnemonicParsing="false" onAction="#CheckStatus" stylesheets="@buttonStyle.css" text="Check Status" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="40.0" top="20.0" />
                            </HBox.margin>
                         </Button>
                      </children>
                   </HBox>
-                  <HBox prefHeight="62.0" prefWidth="585.0">
+                  <HBox fx:id="box1" prefHeight="62.0" prefWidth="585.0" visible="false">
                      <children>
                         <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/departures%20(1).png" />
+                              <Image url="@icons/departures.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="30.0" />
@@ -68,9 +75,9 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <HBox prefHeight="45.0" prefWidth="585.0">
+                  <HBox fx:id="box2" prefHeight="45.0" prefWidth="585.0" visible="false">
                      <children>
-                        <Label text="LKO">
+                        <Label fx:id="sourceLabel" text="LKO">
                            <font>
                               <Font name="Montserrat Bold" size="30.0" />
                            </font>
@@ -91,7 +98,7 @@
                               <Insets top="22.0" />
                            </HBox.margin>
                         </Line>
-                        <Label text="BLR">
+                        <Label fx:id="destinationLabel" text="BLR">
                            <font>
                               <Font name="Montserrat Bold" size="30.0" />
                            </font>
@@ -101,21 +108,21 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="35.0" prefWidth="585.0">
+                  <HBox fx:id="box3" prefHeight="35.0" prefWidth="585.0" visible="false">
                      <children>
-                        <Label text="Lucknow Sat, 28 May 2022">
+                        <Label fx:id="departureDate" text="Lucknow Sat, 28 May 2022">
                            <HBox.margin>
                               <Insets left="20.0" top="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label text="Lucknow Sat, 28 May 2022">
+                        <Label fx:id="ArivalDate" text="Lucknow Sat, 28 May 2022">
                            <HBox.margin>
                               <Insets left="200.0" top="10.0" />
                            </HBox.margin>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="21.0" prefWidth="692.0">
+                  <HBox fx:id="box4" prefHeight="21.0" prefWidth="692.0" visible="false">
                      <children>
                         <Label text="Estimated departure       Terminal   Gate" textFill="#919193">
                            <HBox.margin>
@@ -129,9 +136,9 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="40.0" prefWidth="692.0">
+                  <HBox fx:id="box5" prefHeight="40.0" prefWidth="692.0" visible="false">
                      <children>
-                        <Label text="21:15" textFill="#297249">
+                        <Label fx:id="departureTime" prefHeight="35.0" prefWidth="132.0" text="23:58 IST" textFill="#297249">
                            <font>
                               <Font name="Montserrat Regular" size="28.0" />
                            </font>
@@ -139,15 +146,7 @@
                               <Insets left="20.0" />
                            </HBox.margin>
                         </Label>
-                        <Label layoutX="30.0" layoutY="10.0" text="2">
-                           <font>
-                              <Font name="Montserrat Regular" size="28.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="110.0" />
-                           </HBox.margin>
-                        </Label>
-                        <Label layoutX="198.0" layoutY="10.0" text="2">
+                        <Label fx:id="terminalLabel" layoutX="30.0" layoutY="10.0" text="2">
                            <font>
                               <Font name="Montserrat Regular" size="28.0" />
                            </font>
@@ -155,7 +154,15 @@
                               <Insets left="40.0" />
                            </HBox.margin>
                         </Label>
-                        <Label layoutX="30.0" layoutY="10.0" text="21:15" textFill="#297249">
+                        <Label fx:id="gateLabel" layoutX="198.0" layoutY="10.0" text="2">
+                           <font>
+                              <Font name="Montserrat Regular" size="28.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="arivalTime" layoutX="30.0" layoutY="10.0" text="23:58 IST" textFill="#297249">
                            <font>
                               <Font name="Montserrat Regular" size="28.0" />
                            </font>
@@ -163,15 +170,15 @@
                               <Insets left="130.0" />
                            </HBox.margin>
                         </Label>
-                        <Label layoutX="198.0" layoutY="10.0" text="2">
+                        <Label fx:id="terminalLabel2" layoutX="198.0" layoutY="10.0" text="2">
                            <font>
                               <Font name="Montserrat Regular" size="28.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="100.0" />
+                              <Insets left="35.0" />
                            </HBox.margin>
                         </Label>
-                        <Label layoutX="559.0" layoutY="10.0" text="2">
+                        <Label fx:id="gateLabel2" layoutX="559.0" layoutY="10.0" text="2">
                            <font>
                               <Font name="Montserrat Regular" size="28.0" />
                            </font>
@@ -181,7 +188,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="45.0" prefWidth="692.0">
+                  <HBox fx:id="box6" prefHeight="45.0" prefWidth="692.0" visible="false">
                      <children>
                         <Label text="Status" textFill="#919193">
                            <HBox.margin>
@@ -200,9 +207,9 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox prefHeight="38.0" prefWidth="692.0">
+                  <HBox fx:id="box7" prefHeight="38.0" prefWidth="692.0" visible="false">
                      <children>
-                        <Label text="Schecduled">
+                        <Label fx:id="statusLabel" text="Schecduled">
                            <font>
                               <Font name="Montserrat Regular" size="24.0" />
                            </font>
@@ -210,12 +217,12 @@
                               <Insets left="70.0" />
                            </HBox.margin>
                         </Label>
-                        <Label layoutX="120.0" layoutY="10.0" text="2Hrs 25 Mins">
+                        <Label fx:id="durationLabel" layoutX="120.0" layoutY="10.0" text="02:55">
                            <font>
                               <Font name="Montserrat Regular" size="24.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="60.0" />
+                              <Insets left="80.0" />
                            </HBox.margin>
                         </Label>
                         <Label layoutX="292.0" layoutY="10.0" text="-">
@@ -223,7 +230,7 @@
                               <Font name="Montserrat Regular" size="24.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="80.0" />
+                              <Insets left="160.0" />
                            </HBox.margin>
                         </Label>
                      </children>
